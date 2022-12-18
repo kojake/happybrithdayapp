@@ -38,6 +38,8 @@ class birthday_increase: UIViewController {
     
     //確認ボタンがボタンが押されたら
     @IBAction func decision(_ sender: Any) {
-        
+        day_pseudo = Int(day.text!)!
+        month_pseudo = Int(month.text!)!
+        name_pseudo = name.text!
     }
 }

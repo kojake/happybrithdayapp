@@ -172,6 +172,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemPinkColor"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="decision:" destination="jPj-Yi-fIe" eventType="touchUpInside" id="tya-vx-m00"/>
                                     <segue destination="6aY-Sm-ZOi" kind="show" id="otr-0T-dzF"/>
                                 </connections>
                             </button>
@@ -230,8 +231,8 @@
                                     <segue destination="jPj-Yi-fIe" kind="show" id="XQT-01-bt6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="海斗" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uj-Io-5a7">
-                                <rect key="frame" x="167" y="411" width="113" height="75"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uj-Io-5a7">
+                                <rect key="frame" x="0.0" y="411" width="414" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
                                 <nil key="textColor"/>
@@ -254,6 +255,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="decision:" destination="jPj-Yi-fIe" eventType="touchUpInside" id="I85-wB-TjD"/>
+                                    <action selector="fix:" destination="6aY-Sm-ZOi" eventType="touchUpInside" id="mEY-uB-oGj"/>
                                 </connections>
                             </button>
                         </subviews>
