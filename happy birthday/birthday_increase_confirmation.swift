@@ -15,17 +15,17 @@ class birthday_increase_confirmation: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         //pseudoからgetしlabelに反映する
-        birthday_label.text = String(day_pseudo) + "月" + String(month_pseudo) + "日"
+        birthday_label.text = String(month_pseudo) + "月" + String(day_pseudo) + "日"
         name_label.text = name_pseudo
     }
     
     //決定ボタンが押されたら
-
+    var birthday_list_house = (String(name_pseudo) + "：" + String(month_pseudo) + "/" + String(day_pseudo))
     @IBAction func fix(_ sender: Any) {
-        var list = []
-        list.append(String(name_pseudo) + "：" + month_pseudo + "/" + day_pseudo)
+        UserDefaults.standard.set(birthday_list_house, forKey: "birthday_list_key")
+        
     }
 }

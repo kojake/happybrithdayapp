@@ -164,7 +164,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVC-eF-xLm">
-                                <rect key="frame" x="44" y="213" width="326" height="86"/>
+                                <rect key="frame" x="55" y="703" width="326" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="確認画面へ">
@@ -256,6 +256,7 @@
                                 <connections>
                                     <action selector="decision:" destination="jPj-Yi-fIe" eventType="touchUpInside" id="I85-wB-TjD"/>
                                     <action selector="fix:" destination="6aY-Sm-ZOi" eventType="touchUpInside" id="mEY-uB-oGj"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="tCG-ib-DmP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -333,7 +334,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="XQT-01-bt6"/>
-        <segue reference="gaq-cL-Agq"/>
+        <segue reference="NUb-ir-Qn1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="AccentColor">

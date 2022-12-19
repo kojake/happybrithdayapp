@@ -8,7 +8,7 @@
 import UIKit
 
 //誕生日list
-var birthday_list = ["サンディ：12/21"]
+var birthday_list = [""]
 //誕生日増やす仮lsit
 var name_pseudo = ""
 var month_pseudo = 0
