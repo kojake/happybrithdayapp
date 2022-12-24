@@ -14,7 +14,12 @@ class birthday_see: UIViewController, UITableViewDataSource{
         tableview.dataSource = self
     }
     
-    var birthday_list_see = UserDefaults.standard.object(forKey: "birthday_list_key") as! [String]
+    if let birthdayList = UserDefaults.standard.array(forKey: "birthday_list_key") as? [String] {
+        birthday_list_see = birthdayList
+    } else {
+        birthday_list_see = []
+    }
+
     
     @IBOutlet weak var tableview: UITableView!
     
