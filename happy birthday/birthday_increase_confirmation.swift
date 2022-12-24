@@ -10,22 +10,27 @@ import UIKit
 class birthday_increase_confirmation: UIViewController {
     
     //名前と誕生日の確認label
-    @IBOutlet weak var name_label: UILabel!
-    @IBOutlet weak var birthday_label: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var birthdayLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         //pseudoからgetしlabelに反映する
-        birthday_label.text = String(month_pseudo) + "月" + String(day_pseudo) + "日"
-        name_label.text = name_pseudo
+        birthdayLabel.text = "\(month_pseudo)月\(day_pseudo)日"
+        nameLabel.text = name_pseudo
     }
     
     //決定ボタンが押されたら
-    var birthday_list_house = (String(name_pseudo) + "：" + String(month_pseudo) + "/" + String(day_pseudo))
     @IBAction func fix(_ sender: Any) {
-        UserDefaults.standard.set(birthday_list_house, forKey: "birthday_list_key")
+        let birthdayListHouse = "\(name_pseudo)：\(month_pseudo)/\(day_pseudo)"
         
+        if var birthdayList = UserDefaults.standard.array(forKey: "birthday_list_key") as? [String] {
+            birthdayList.append(birthdayListHouse)
+            UserDefaults.standard.set(birthdayList, forKey: "birthday_list_key")
+        } else {
+            UserDefaults.standard.set([birthdayListHouse], forKey: "birthday_list_key")
+        }
     }
 }
