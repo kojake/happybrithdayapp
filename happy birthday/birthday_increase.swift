@@ -34,25 +34,7 @@ class birthday_increase: UIViewController {
     
     //確認ボタンがボタンが押されたら
     @IBAction func decision(_ sender: Any) {
-        
-        //もしdayがnilな場合はアラートを出す
-        if day == nil{
-            //アラート
-            let alert = UIAlertController(title: "報告", message: "月の部分が入力されていません", preferredStyle: .alert)
-            present(alert, animated: true, completion: nil)
-            
-            //okbutton
-            let ok = UIAlertAction(title: "OK", style: .default) { (action) in
-                self.dismiss(animated: true, completion: nil)
-            }
-            alert.addAction(ok)
-            //ここまで追加
-            present(alert, animated: true, completion: nil)
-        }
-        else{
-            day_pseudo = Int(day.text!)!
-        }
-        
+        day_pseudo = Int(day.text!)!        
         month_pseudo = Int(month.text!)!
         name_pseudo = name.text!
     }

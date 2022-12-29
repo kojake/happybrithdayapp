@@ -13,6 +13,10 @@ var birthday_list = [""]
 var name_pseudo = ""
 var month_pseudo = 0
 var day_pseudo = 0
+//おみくじ
+let a_fortune_slip_list = [1,2,3,4,5,6,7]
+var a_fortune_slip = 0
+var image_nomber = 0
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

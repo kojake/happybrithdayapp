@@ -8,6 +8,7 @@
 import UIKit
 
 class birthday_see: UIViewController, UITableViewDataSource{
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -27,5 +28,9 @@ class birthday_see: UIViewController, UITableViewDataSource{
         cell.textLabel?.text = birthday_list_see[indexPath.row]
         return cell
     }
-    
+    //セルの消去
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let task = birthday_list_see[indexPath.row]
+        tableView.delete(task)
+    }
 }
