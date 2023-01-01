@@ -18,13 +18,25 @@ class birthday_increase_confirmation: UIViewController {
         
         // Do any additional setup after loading the view.
         //pseudoからgetしlabelに反映する
-        birthdayLabel.text = "\(month_pseudo)月\(day_pseudo)日"
+        birthdayLabel.text = "\(year_pseudo)年\(month_pseudo)月\(day_pseudo)日"
         nameLabel.text = name_pseudo
     }
     
     //決定ボタンが押されたら
     @IBAction func fix(_ sender: Any) {
-        let birthdayListHouse = "\(name_pseudo)：\(month_pseudo)/\(day_pseudo)"
+        //和暦を定義する
+        if year_pseudo >= 1926 && year_pseudo <= 1988{
+            japanese_calendar = "昭和"
+        }
+        else if year_pseudo >= 1989 && year_pseudo <= 2019{
+            japanese_calendar = "平成"
+        }
+        else if year_pseudo >= 2019 && year_pseudo <= 2022{
+            japanese_calendar = "令和"
+        }
+        
+        
+        let birthdayListHouse = "\(name_pseudo)：\(japanese_calendar)：\(year_pseudo)\(month_pseudo)/\(day_pseudo)"
         
         if var birthdayList = UserDefaults.standard.array(forKey: "birthday_list_key") as? [String] {
             birthdayList.append(birthdayListHouse)

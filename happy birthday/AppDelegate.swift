@@ -13,6 +13,9 @@ var birthday_list = [""]
 var name_pseudo = ""
 var month_pseudo = 0
 var day_pseudo = 0
+var year_pseudo = 0
+var japanese_calendar = ""
+
 //おみくじ
 let a_fortune_slip_list = [1,2,3,4,5,6,7]
 var a_fortune_slip = 0

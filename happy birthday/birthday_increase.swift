@@ -28,14 +28,16 @@ class birthday_increase: UIViewController {
     }
     //名前
     @IBOutlet weak var name: UITextField!
-    //誕生日 month/day
+    //誕生日 year/month/day
     @IBOutlet weak var month: UITextField!
     @IBOutlet weak var day: UITextField!
+    @IBOutlet weak var year: UITextField!
     
     //確認ボタンがボタンが押されたら
     @IBAction func decision(_ sender: Any) {
         day_pseudo = Int(day.text!)!        
         month_pseudo = Int(month.text!)!
+        year_pseudo = Int(year.text!)!
         name_pseudo = name.text!
     }
     //キーボードを閉じる
