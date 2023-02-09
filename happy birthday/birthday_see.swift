@@ -30,7 +30,7 @@ class birthday_see: UIViewController, UITableViewDataSource{
     }
     //セルの消去
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        let task = birthday_list_see[indexPath.row]
-        tableView.delete(task)
+        birthday_list_see.remove(at: indexPath.row)
+        tableview.deleteRows(at: [indexPath], with: .top)
     }
 }

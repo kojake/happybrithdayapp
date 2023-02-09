@@ -13,13 +13,8 @@
 		9721A0762944995F00D7211B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9721A0742944995F00D7211B /* Main.storyboard */; };
 		9721A0782944996000D7211B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9721A0772944996000D7211B /* Assets.xcassets */; };
 		9721A07B2944996000D7211B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9721A0792944996000D7211B /* LaunchScreen.storyboard */; };
-		9767EE49295D15DB00E414CB /* syougatsu2_omijikuji2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9767EE48295D15DB00E414CB /* syougatsu2_omijikuji2.png */; };
-		9767EE4B295D169500E414CB /* a_fortune_slip_top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9767EE4A295D169500E414CB /* a_fortune_slip_top.swift */; };
-		9767EE4D295D1A8A00E414CB /* omikuji_result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9767EE4C295D1A8A00E414CB /* omikuji_result.swift */; };
 		9779E114294575FF00671973 /* birthday_see.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9779E113294575FF00671973 /* birthday_see.swift */; };
 		9779E11629458F5A00671973 /* birthday_increase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9779E11529458F5A00671973 /* birthday_increase.swift */; };
-		9779E11A2945A1DC00671973 /* birthday_increase_confirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9779E1192945A1DC00671973 /* birthday_increase_confirmation.swift */; };
-		97F2AD7C2957CC22002A7C14 /* happy_birthday_detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F2AD7B2957CC22002A7C14 /* happy_birthday_detail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,13 +26,8 @@
 		9721A0772944996000D7211B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9721A07A2944996000D7211B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9721A07C2944996000D7211B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9767EE48295D15DB00E414CB /* syougatsu2_omijikuji2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = syougatsu2_omijikuji2.png; sourceTree = SOURCE_ROOT; };
-		9767EE4A295D169500E414CB /* a_fortune_slip_top.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a_fortune_slip_top.swift; sourceTree = "<group>"; };
-		9767EE4C295D1A8A00E414CB /* omikuji_result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = omikuji_result.swift; sourceTree = "<group>"; };
 		9779E113294575FF00671973 /* birthday_see.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = birthday_see.swift; sourceTree = "<group>"; };
 		9779E11529458F5A00671973 /* birthday_increase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = birthday_increase.swift; sourceTree = "<group>"; };
-		9779E1192945A1DC00671973 /* birthday_increase_confirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = birthday_increase_confirmation.swift; sourceTree = "<group>"; };
-		97F2AD7B2957CC22002A7C14 /* happy_birthday_detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = happy_birthday_detail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,19 +61,14 @@
 			isa = PBXGroup;
 			children = (
 				9721A06E2944995F00D7211B /* AppDelegate.swift */,
-				9767EE4A295D169500E414CB /* a_fortune_slip_top.swift */,
-				9767EE4C295D1A8A00E414CB /* omikuji_result.swift */,
 				9721A0702944995F00D7211B /* SceneDelegate.swift */,
 				9721A0722944995F00D7211B /* ViewController.swift */,
 				9779E113294575FF00671973 /* birthday_see.swift */,
-				97F2AD7B2957CC22002A7C14 /* happy_birthday_detail.swift */,
 				9779E11529458F5A00671973 /* birthday_increase.swift */,
-				9779E1192945A1DC00671973 /* birthday_increase_confirmation.swift */,
 				9721A0742944995F00D7211B /* Main.storyboard */,
 				9721A0772944996000D7211B /* Assets.xcassets */,
 				9721A0792944996000D7211B /* LaunchScreen.storyboard */,
 				9721A07C2944996000D7211B /* Info.plist */,
-				9767EE48295D15DB00E414CB /* syougatsu2_omijikuji2.png */,
 			);
 			path = "happy birthday";
 			sourceTree = "<group>";
@@ -148,7 +133,6 @@
 			files = (
 				9721A07B2944996000D7211B /* LaunchScreen.storyboard in Resources */,
 				9721A0782944996000D7211B /* Assets.xcassets in Resources */,
-				9767EE49295D15DB00E414CB /* syougatsu2_omijikuji2.png in Resources */,
 				9721A0762944995F00D7211B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,14 +145,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9779E114294575FF00671973 /* birthday_see.swift in Sources */,
-				9779E11A2945A1DC00671973 /* birthday_increase_confirmation.swift in Sources */,
 				9779E11629458F5A00671973 /* birthday_increase.swift in Sources */,
-				97F2AD7C2957CC22002A7C14 /* happy_birthday_detail.swift in Sources */,
 				9721A0732944995F00D7211B /* ViewController.swift in Sources */,
 				9721A06F2944995F00D7211B /* AppDelegate.swift in Sources */,
-				9767EE4D295D1A8A00E414CB /* omikuji_result.swift in Sources */,
 				9721A0712944995F00D7211B /* SceneDelegate.swift in Sources */,
-				9767EE4B295D169500E414CB /* a_fortune_slip_top.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
