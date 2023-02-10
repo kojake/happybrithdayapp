@@ -7,7 +7,7 @@
 
 import UIKit
 
-class birthday_see: UIViewController, UITableViewDataSource{
+class birthday_see: UIViewController, UITableViewDataSource,UITableViewDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
