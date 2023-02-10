@@ -11,8 +11,6 @@ class birthday_see: UIViewController, UITableViewDataSource{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        tableview.dataSource = self
     }
     
     var birthday_list_see = UserDefaults.standard.object(forKey: "birthday_list_key") as! [String]

@@ -72,13 +72,25 @@ class birthday_increase: UIViewController {
                 //和暦を定義する
                 if year_pseudo >= 1926 && year_pseudo <= 1988{
                     japanese_calendar = "昭和"
+                    add_happy_birthday()
                 }
                 else if year_pseudo >= 1989 && year_pseudo <= 2019{
                     japanese_calendar = "平成"
+                    add_happy_birthday()
                 }
                 else if year_pseudo >= 2019 && year_pseudo <= 2022{
                     japanese_calendar = "令和"
+                    add_happy_birthday()
                 }
+                else{
+                    let error_alert = UIAlertController(title: "エラー", message: "年の欄でエラーが発生しましたので追加できませんでした。1926年から今年までの年代を入力してください", preferredStyle: .alert)
+                    error_alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                    self.present(error_alert, animated: true, completion: nil)
+                }
+                
+            }))
+            
+            func add_happy_birthday(){
                 
                 let birthdayListHouse = "\(name_pseudo):\(japanese_calendar)：\(year_pseudo)\(month_pseudo)/\(day_pseudo)"
                 
@@ -93,8 +105,8 @@ class birthday_increase: UIViewController {
                 let add_alert = UIAlertController(title: "完了", message: "追加しました", preferredStyle: .alert)
                 add_alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(add_alert, animated: true, completion: nil)
-                
-            }))
+            }
+
             
             self.present(alert, animated: true, completion: nil)
         }
@@ -103,5 +115,5 @@ class birthday_increase: UIViewController {
     @objc func commitButtonTappend(){
         self.view.endEditing(true)
     }
-    
+        
 }
