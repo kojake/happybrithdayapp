@@ -30,5 +30,6 @@ class birthday_see: UIViewController, UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         birthday_list_see.remove(at: indexPath.row)
         tableview.deleteRows(at: [indexPath], with: .top)
+        UserDefaults.standard.set(birthday_list_see, forKey: "birthday_list_key")
     }
 }
