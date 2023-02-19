@@ -168,19 +168,32 @@ class birthday_increase: UIViewController,UITableViewDataSource, UIImagePickerCo
     
     //写真追加
     @IBAction func select_photo(_ sender: Any) {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.sourceType = .photoLibrary
-        imagePickerController.delegate = self
-        imagePickerController.mediaTypes = ["public.image"]
-        present(imagePickerController, animated: true)
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            // 画像選択時の処理
-            // ↓選んだ画像を取得
-            photo_imageView.image = (info[.originalImage] as! UIImage)
-            self.photo_imageView.addSubview(photo_imageView)
+        // カメラロールが利用可能か？
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            // 写真を選ぶビュー
+            let pickerView = UIImagePickerController()
+            // 写真の選択元をカメラロールにする
+            // 「.camera」にすればカメラを起動できる
+            pickerView.sourceType = .photoLibrary
+            // デリゲート
+            pickerView.delegate = self
+            // ビューに表示
+            self.present(pickerView, animated: true)
+            print("ok1")
+            
+            // 写真を選んだ後に呼ばれる処理
+            func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+                print("ok3")
+                // 選択した写真を取得する
+                let image = info[.originalImage] as! UIImage
+                // ビューに表示する
+                photo_imageView.image = image
+                // 写真を選ぶビューを引っ込める
+                self.dismiss(animated: true)
+                print("goal")
             }
+        }
     }
-    
     //キーボードを閉じる
     @objc func commitButtonTappend(){
         self.view.endEditing(true)
