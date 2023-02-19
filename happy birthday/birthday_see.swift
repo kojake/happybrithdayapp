@@ -9,8 +9,9 @@ import UIKit
 
 class birthday_see: UIViewController, UITableViewDataSource,UITableViewDelegate{
     
-    //imageview
-
+    //tableview
+    @IBOutlet weak var tableview: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,21 +21,18 @@ class birthday_see: UIViewController, UITableViewDataSource,UITableViewDelegate{
         tableview.register(UINib(nibName: "customCell", bundle: nil), forCellReuseIdentifier: "customCell")
     }
     
-    @IBOutlet weak var tableview: UITableView!
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return birthday_list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = birthday_list[indexPath.row]
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as? customCell {
+        if tableView.dequeueReusableCell(withIdentifier: "customCell") is customCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath)
+            cell.textLabel?.text = birthday_list[indexPath.row]
+            
             return cell
         }
         return UITableViewCell()
-    
-        return cell
     }
     
     //読み込む
@@ -49,4 +47,5 @@ class birthday_see: UIViewController, UITableViewDataSource,UITableViewDelegate{
         tableview.deleteRows(at: [indexPath], with: .top)
         UserDefaults.standard.set(birthday_list, forKey: "birthday_list_key")
     }
+
 }

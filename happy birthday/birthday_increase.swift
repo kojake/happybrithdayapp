@@ -8,7 +8,7 @@
 import UIKit
 import PhotosUI
 
-class birthday_increase: UIViewController,UITableViewDataSource{
+class birthday_increase: UIViewController,UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     //photo_aitem
     @IBOutlet weak var phote_add_do_not_do_switch: UISwitch!
@@ -133,8 +133,9 @@ class birthday_increase: UIViewController,UITableViewDataSource{
             }))
 
             func add_happy_birthday(){
-
-                let birthdayListHouse = "\(name_pseudo):\(japanese_calendar)：\(year_pseudo)/\(month_pseudo)/\(day_pseudo)"
+                let space = "         "
+                
+                let birthdayListHouse = "\(space)\(name_pseudo):\(japanese_calendar)：\(year_pseudo)/\(month_pseudo)/\(day_pseudo)"
 
                 if var birthdayList = UserDefaults.standard.array(forKey: "birthday_list_key") as? [String] {
                     birthdayList.append(birthdayListHouse)
@@ -148,7 +149,6 @@ class birthday_increase: UIViewController,UITableViewDataSource{
                 add_alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(add_alert, animated: true, completion: nil)
             }
-
 
             self.present(alert, animated: true, completion: nil)
         }
@@ -168,12 +168,16 @@ class birthday_increase: UIViewController,UITableViewDataSource{
     
     //写真追加
     @IBAction func select_photo(_ sender: Any) {
-        let picker = UIImagePickerController()
-        present(picker, animated: true)
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
-                // 画像選択時の処理
-                  // ↓選んだ画像を取得
-            let images = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.delegate = self
+        imagePickerController.mediaTypes = ["public.image"]
+        present(imagePickerController, animated: true)
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            // 画像選択時の処理
+            // ↓選んだ画像を取得
+            photo_imageView.image = (info[.originalImage] as! UIImage)
+            self.photo_imageView.addSubview(photo_imageView)
             }
     }
     
