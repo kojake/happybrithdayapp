@@ -6,12 +6,19 @@
 //
 
 import UIKit
+import PhotosUI
 
 class birthday_increase: UIViewController,UITableViewDataSource{
 
+    //photo_aitem
+    @IBOutlet weak var phote_add_do_not_do_switch: UISwitch!
+    @IBOutlet weak var add_photo_button: UIButton!
+    @IBOutlet weak var photo_imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        add_photo_button.setTitle("追加できます", for: .normal)
         //キーボードを閉じるためのボタンを追加する
         //ツールバー作成
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
@@ -146,6 +153,30 @@ class birthday_increase: UIViewController,UITableViewDataSource{
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    //写真
+    @IBAction func photo_add_do_not_do_switch(_ sender: UISwitch) {
+        if ( sender.isOn ) {
+            add_photo_button.isEnabled = true
+            add_photo_button.setTitle("追加できます", for: .normal)
+        }
+        else{
+            add_photo_button.isEnabled = false
+            add_photo_button.setTitle("追加できません", for: .normal)
+        }
+    }
+    
+    //写真追加
+    @IBAction func select_photo(_ sender: Any) {
+        let picker = UIImagePickerController()
+        present(picker, animated: true)
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
+                // 画像選択時の処理
+                  // ↓選んだ画像を取得
+            let images = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage
+            }
+    }
+    
     //キーボードを閉じる
     @objc func commitButtonTappend(){
         self.view.endEditing(true)

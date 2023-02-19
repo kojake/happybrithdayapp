@@ -8,11 +8,16 @@
 import UIKit
 
 class birthday_see: UIViewController, UITableViewDataSource,UITableViewDelegate{
+    
+    //imageview
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         birthday_list = UserDefaults.standard.object(forKey: "birthday_list_key") as! [String]
+        
+        //tableviewcustom
+        tableview.register(UINib(nibName: "customCell", bundle: nil), forCellReuseIdentifier: "customCell")
     }
     
     @IBOutlet weak var tableview: UITableView!
@@ -24,6 +29,11 @@ class birthday_see: UIViewController, UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = birthday_list[indexPath.row]
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as? customCell {
+            return cell
+        }
+        return UITableViewCell()
+    
         return cell
     }
     
