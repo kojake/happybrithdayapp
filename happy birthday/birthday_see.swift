@@ -35,12 +35,6 @@ class birthday_see: UIViewController, UITableViewDataSource,UITableViewDelegate{
         return UITableViewCell()
     }
     
-    //読み込む
-    @IBAction func reload(_ sender: Any) {
-        viewDidLoad()
-        tableview.reloadData()
-    }
-    
     //セルの消去
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         birthday_list.remove(at: indexPath.row)
