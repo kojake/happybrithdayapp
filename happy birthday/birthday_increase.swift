@@ -113,15 +113,15 @@ class birthday_increase: UIViewController,UITableViewDataSource, UIImagePickerCo
                 else{
                     if year_pseudo >= 1926 && year_pseudo <= 1988{
                         japanese_calendar = "昭和"
-                        add_happy_birthday()
+                        add_happy_birthday(photoPath: String())
                     }
                     else if year_pseudo >= 1989 && year_pseudo <= 2019{
                         japanese_calendar = "平成"
-                        add_happy_birthday()
+                        add_happy_birthday(photoPath: String())
                     }
                     else if year_pseudo >= 2019 && year_pseudo <= 2022{
                         japanese_calendar = "令和"
-                        add_happy_birthday()
+                        add_happy_birthday(photoPath: String())
                     }
                     else{
                         let error_alert = UIAlertController(title: "エラー", message: "年の欄でエラーが発生しましたので追加できませんでした。1926年から今年までの年代を入力してください", preferredStyle: .alert)
@@ -132,22 +132,30 @@ class birthday_increase: UIViewController,UITableViewDataSource, UIImagePickerCo
 
             }))
 
-            func add_happy_birthday(){
+            func add_happy_birthday(photoPath: String?){
                 let space = "         "
                 
                 let birthdayListHouse = "\(space)\(name_pseudo):\(japanese_calendar)：\(year_pseudo)/\(month_pseudo)/\(day_pseudo)"
 
-                if var birthdayList = UserDefaults.standard.array(forKey: "birthday_list_key") as? [String] {
-                    birthdayList.append(birthdayListHouse)
+                var data: [String: Any] = [
+                    "birthdayListHouse": birthdayListHouse
+                ]
+                if let photoPath = photoPath {
+                    data["photoPath"] = photoPath
+                }
+                
+                if var birthdayList = UserDefaults.standard.array(forKey: "birthday_list_key") as? [[String: Any]] {
+                    birthdayList.append(data)
                     UserDefaults.standard.set(birthdayList, forKey: "birthday_list_key")
                 } else {
-                    UserDefaults.standard.set([birthdayListHouse], forKey: "birthday_list_key")
+                    UserDefaults.standard.set([data], forKey: "birthday_list_key")
                 }
-
+                
                 //追加されたことを報告するアラート
                 let add_alert = UIAlertController(title: "完了", message: "追加しました", preferredStyle: .alert)
                 add_alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(add_alert, animated: true, completion: nil)
+                
             }
 
             self.present(alert, animated: true, completion: nil)
@@ -166,6 +174,41 @@ class birthday_increase: UIViewController,UITableViewDataSource, UIImagePickerCo
         }
     }
     
+    // 写真を選んだ後に呼ばれる処理
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        print("ok3")
+        // 選択した写真を取得する
+        let image = info[.originalImage] as! UIImage
+        // ビューに表示する
+        photo_imageView.image = image
+        // 写真を選ぶビューを引っ込める
+        self.dismiss(animated: true)
+        print("goal")
+    }
+    func getDocumentDirectoryPath() -> String? {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        return paths.first
+    }
+    func saveImageToDocumentDirectory(image: UIImage) -> String? {
+        // 保存先のパスを取得
+        guard let documentDirectoryPath = getDocumentDirectoryPath() else {
+            return nil
+        }
+        let fileURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent("photo.jpg")
+        // JPEG 形式で保存
+        guard let imageData = image.jpegData(compressionQuality: 1.0) else {
+            return nil
+        }
+        do {
+            try imageData.write(to: fileURL)
+            return fileURL.absoluteString
+        } catch {
+            print("Error saving image:", error)
+            return nil
+        }
+    }
+    
+    
     //写真追加
     @IBAction func select_photo(_ sender: Any) {
         // カメラロールが利用可能か？
@@ -181,17 +224,6 @@ class birthday_increase: UIViewController,UITableViewDataSource, UIImagePickerCo
             self.present(pickerView, animated: true)
             print("ok1")
             
-            // 写真を選んだ後に呼ばれる処理
-            func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-                print("ok3")
-                // 選択した写真を取得する
-                let image = info[.originalImage] as! UIImage
-                // ビューに表示する
-                photo_imageView.image = image
-                // 写真を選ぶビューを引っ込める
-                self.dismiss(animated: true)
-                print("goal")
-            }
         }
     }
     //キーボードを閉じる

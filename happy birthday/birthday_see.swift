@@ -17,8 +17,8 @@ class birthday_see: UIViewController, UITableViewDataSource,UITableViewDelegate{
         
         birthday_list = UserDefaults.standard.object(forKey: "birthday_list_key") as! [String]
         
-        //tableviewcustom
-        tableview.register(UINib(nibName: "customCell", bundle: nil), forCellReuseIdentifier: "customCell")
+//        //tableviewcustom
+//        tableview.register(UINib(nibName: "customCell", bundle: nil), forCellReuseIdentifier: "customCell")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

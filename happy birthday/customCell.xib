@@ -25,6 +25,9 @@
                 <color key="backgroundColor" systemColor="systemYellowColor"/>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="photoimageview" destination="MtI-Z0-OH1" id="krr-YS-z1S"/>
+            </connections>
             <point key="canvasLocation" x="54.961832061068698" y="20.422535211267608"/>
         </tableViewCell>
     </objects>

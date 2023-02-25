@@ -7,8 +7,9 @@
 
 import UIKit
 
-class customCell: UITableViewCell {
-
+class customCell: UITableViewCell {    
+    @IBOutlet weak var photoimageview: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
