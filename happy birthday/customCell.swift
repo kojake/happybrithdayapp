@@ -19,9 +19,10 @@ class customCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        birthday_list = UserDefaults.standard.object(forKey: "birthday_list_key") as! [String]
-        photoimageview.image = (UIImage(named: "photoPath"))
+        photo = UserDefaults.standard.object(forKey: "photo_key") as! [String]
+//        photoimageview.image = (UIImage(named: photo))
     }
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

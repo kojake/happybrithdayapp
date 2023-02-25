@@ -144,12 +144,17 @@ class birthday_increase: UIViewController,UITableViewDataSource, UIImagePickerCo
                     data["photoPath"] = photoPath
                 }
                 
-                if var birthdayList = UserDefaults.standard.array(forKey: "birthday_list_key") as? [[String: Any]] {
-                    birthdayList.append(data)
-                    UserDefaults.standard.set(birthdayList, forKey: "birthday_list_key")
-                } else {
-                    UserDefaults.standard.set([data], forKey: "birthday_list_key")
-                }
+                birthday_list.append(birthdayListHouse)
+                photo.append(photoPath!)
+                UserDefaults.standard.set(birthday_list, forKey: "birthday_listkey")
+                UserDefaults.standard.set(photo, forKey: "photo_key")
+                
+//                if var birthdayList = UserDefaults.standard.array(forKey: "birthday_list_key") as? [[String: Any]] {
+//                    birthdayList.append(data)
+//                    UserDefaults.standard.set(birthdayList, forKey: "birthday_list_key")
+//                } else {
+//                    UserDefaults.standard.set([data], forKey: "birthday_list_key")
+//                }
                 
                 //追加されたことを報告するアラート
                 let add_alert = UIAlertController(title: "完了", message: "追加しました", preferredStyle: .alert)

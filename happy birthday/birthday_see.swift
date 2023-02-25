@@ -14,14 +14,13 @@ class birthday_see: UIViewController, UITableViewDataSource,UITableViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
          //customCellからの画像を受け取る
 //        let customcell = customCell()
 //        let photoimage = customcell.photoimage
-        
-        birthday_list = UserDefaults.standard.object(forKey: "birthday_list_key") as! [String]
-        
 //        photoimage.image = birthday_list
+        
+        //読み込む
+        birthday_list = UserDefaults.standard.object(forKey: "birthday_listkey") as! [String]
         
         //tableviewcustom
         tableview.register(UINib(nibName: "customCell", bundle: nil), forCellReuseIdentifier: "customCell")

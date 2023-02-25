@@ -9,6 +9,7 @@ import UIKit
 
 //誕生日list
 var birthday_list = [""]
+var photo = [""]
 //誕生日増やすtableview_list
 var birthday_increase_tableview_list = ["名前","年","月","日"]
 //誕生日増やす仮lsit
