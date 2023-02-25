@@ -16,12 +16,15 @@ class birthday_see: UIViewController, UITableViewDataSource,UITableViewDelegate{
         super.viewDidLoad()
         
          //customCellからの画像を受け取る
-        let customcell = customCell()
+//        let customcell = customCell()
+//        let photoimage = customcell.photoimage
         
         birthday_list = UserDefaults.standard.object(forKey: "birthday_list_key") as! [String]
         
-//        //tableviewcustom
-//        tableview.register(UINib(nibName: "customCell", bundle: nil), forCellReuseIdentifier: "customCell")
+//        photoimage.image = birthday_list
+        
+        //tableviewcustom
+        tableview.register(UINib(nibName: "customCell", bundle: nil), forCellReuseIdentifier: "customCell")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
