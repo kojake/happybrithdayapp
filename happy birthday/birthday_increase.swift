@@ -137,17 +137,15 @@ class birthday_increase: UIViewController,UITableViewDataSource, UIImagePickerCo
                 
                 let birthdayListHouse = "\(space)\(name_pseudo):\(japanese_calendar)：\(year_pseudo)/\(month_pseudo)/\(day_pseudo)"
 
-                var data: [String: Any] = [
-                    "birthdayListHouse": birthdayListHouse
-                ]
+                var photo_item = photoPath
                 if let photoPath = photoPath {
-                    data["photoPath"] = photoPath
+                    photo_item = photoPath
                 }
-                
+
+                photo_item!.append(photo_item!)
                 birthday_list.append(birthdayListHouse)
-                photo.append(photoPath!)
                 UserDefaults.standard.set(birthday_list, forKey: "birthday_listkey")
-                UserDefaults.standard.set(photo, forKey: "photo_key")
+                UserDefaults.standard.set([photo_item], forKey: "photo_key")
                 
 //                if var birthdayList = UserDefaults.standard.array(forKey: "birthday_list_key") as? [[String: Any]] {
 //                    birthdayList.append(data)
@@ -162,7 +160,6 @@ class birthday_increase: UIViewController,UITableViewDataSource, UIImagePickerCo
                 self.present(add_alert, animated: true, completion: nil)
                 
             }
-
             self.present(alert, animated: true, completion: nil)
         }
     }
@@ -183,7 +180,7 @@ class birthday_increase: UIViewController,UITableViewDataSource, UIImagePickerCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         print("ok3")
         // 選択した写真を取得する
-        let image = info[.originalImage] as! UIImage
+        image = info[.originalImage] as? UIImage
         // ビューに表示する
         photo_imageView.image = image
         // 写真を選ぶビューを引っ込める
