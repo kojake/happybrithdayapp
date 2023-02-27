@@ -7,14 +7,15 @@
 
 import UIKit
 
-class customCell: UITableViewCell {    
+class customCell: UITableViewCell {
     @IBOutlet weak var photoimageview: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        photo = UserDefaults.standard.object(forKey: "photo_key") as! [String]
-        photoimageview.image = photo
+        images = UserDefaults.standard.object(forKey: "photo_image_key") as! [String]
+        print(images)
+//        photoimageview.image = String[photo]
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

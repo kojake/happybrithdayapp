@@ -142,10 +142,10 @@ class birthday_increase: UIViewController,UITableViewDataSource, UIImagePickerCo
                     photo_item = photoPath
                 }
 
-                photo_item!.append(photo_item!)
+                photo_item!.append(photoPath!)
                 birthday_list.append(birthdayListHouse)
                 UserDefaults.standard.set(birthday_list, forKey: "birthday_listkey")
-                UserDefaults.standard.set([photo_item], forKey: "photo_key")
+                UserDefaults.standard.set([photo_item], forKey: "photo_image_key")
                 
 //                if var birthdayList = UserDefaults.standard.array(forKey: "birthday_list_key") as? [[String: Any]] {
 //                    birthdayList.append(data)

@@ -9,7 +9,7 @@ import UIKit
 
 //誕生日list
 var birthday_list = [""]
-var photo = [String]()
+var images = [String]()
 var image: UIImage!
 
 //誕生日増やすtableview_list
